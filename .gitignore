@@ -7,8 +7,6 @@ setups/models/
 # Virtual env
 venv/
 
-# Outputs
-outputs/
 
 # Python cache
 __pycache__/
