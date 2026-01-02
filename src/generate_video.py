@@ -22,12 +22,16 @@ def generate_video(image_path, output_path):
 
     frames = pipe(
         image,
-        num_frames=12,
-        fps=6,
-        motion_bucket_id=80,
-        noise_aug_strength=0.02,
+        num_frames=14,        # sweet spot
+        fps=7,
+        motion_bucket_id=90,  # smoother motion
+        noise_aug_strength=0.015,
         decode_chunk_size=2
     ).frames[0]
+    
+    # Loop the video smoothly
+    frames = frames + frames[::-1]
+
 
     imageio.mimsave(output_path, frames, fps=6)
 

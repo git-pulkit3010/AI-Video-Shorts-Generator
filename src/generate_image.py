@@ -11,11 +11,11 @@ def generate_image(prompt, output_path):
 
     image = pipe(
         prompt=prompt,
-        num_inference_steps=10,
+        num_inference_steps=12,
         guidance_scale=1.8,
-        height=512,
-        width=512
-).images[0]
+        height=768,
+        width=432,   # 9:16 ratio
+    ).images[0]    
     
     image.save(output_path)
 
